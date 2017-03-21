@@ -20,7 +20,7 @@ class cosmo {
     public:
 
     cosmo(float inp1, float inp2, float inp3, float inp4, float inp5){
-        // cosmological params at z =0
+        
         H0 = inp1;
         Omega_M = inp2;
         Omega_b = inp3;

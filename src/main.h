@@ -35,7 +35,7 @@ float return_ysz_Battaglia(float xmax, float xi, float M200, float R200, float z
 	double clight = 2.9979e8; //m/s
 	double mecsq = m_e * pow(clight,2) * Joules_to_keV; // keV
 
-    gsl_integration_workspace * w = gsl_integration_workspace_alloc (10000); 
+    gsl_integration_workspace * w = gsl_integration_workspace_alloc (1e6); 
 
     double result, error;
     float params[3] = {xi, M200, z};
@@ -43,7 +43,7 @@ float return_ysz_Battaglia(float xmax, float xi, float M200, float R200, float z
     F.function = &yproj_func_Battaglia;
     F.params = &params;
 
-    gsl_integration_qags (&F, 0, sqrt(xmax*xmax-xi*xi), 0, 1e-6, 10000, w, &result, &error); 
+    gsl_integration_qags (&F, 0, sqrt(xmax*xmax-xi*xi), 0, 1e-6, 1e6 , w, &result, &error); 
 
     double P200 = return_P200(rho_crit, f_b, M200, R200); // Msun km^2 / Mpc^3 / s^2
     P200 *= Msun_to_kg * 1e6 * Joules_to_keV / pow(Mpc_to_cm,3); // now in keV/cm^3
