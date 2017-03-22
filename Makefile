@@ -5,13 +5,13 @@ SRCDIR := ./src
 OBJDIR := ./obj
 INCLUDES := -I $(SRCDIR) \
             -I ../../software/cfitsio \
-            -I ../../software/Healpix_3.20/src/cxx/generic_gcc/include
+            -I ../../software/Healpix_3.31/src/cxx/generic_gcc/include
 
 OBJECTS := $(OBJDIR)/main.o 
 
 #linking to the libraries
 xtract : $(OBJECTS) ; $(CPP) $(CPPFLAGS) $(OBJECTS) \
-    -L../../software/Healpix_3.20/src/cxx/generic_gcc/lib \
+    -L../../software/Healpix_3.31/src/cxx/generic_gcc/lib \
     -L../../software/cfitsio/lib \
     -lgsl -lgslcblas \
     -lhealpix_cxx \
