@@ -1,6 +1,8 @@
 szmap - a fast C++ code for generating a mock tSZ map from a halo catalog
 by Samuel Flender
 
+currently the code is using the pressure profile from Battaglia+12 (arxiv 1109.3711)
+
 You need to install Healpix, cfitsio, MPI, and gsl. To compile, type "make". To run, type "./szmap szmap.cfg".
 
 The config parameters are:
