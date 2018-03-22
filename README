@@ -1,12 +1,16 @@
 szmap - a fast C++ code for generating a mock tSZ map from a halo catalog
 by Samuel Flender
 
-currently the code is using the pressure profile from Battaglia+12 (arxiv 1109.3711)
+Added beta profile by Vinu Vikraman
+
+
+currently the code is using the pressure profile from Battaglia+12 (arxiv 1109.3711) & Birkinshaw 1999
 
 You need to install Healpix, cfitsio, MPI, and gsl. To compile, type "make". To run, type "./szmap szmap.cfg".
 
 The config parameters are:
 
+profiletype = 1/2 for Battaglia/Beta
 order = order of the Healpix map
 order_subpix = if this is larger than order, then each pixel is subpixelized into pixels of the higher order. This can reduce some shotnoise at very high ell.
 convert_map_to_ring = Set this to 1 if you want to have the output map in RING ordering (otherwise NESTED)
@@ -20,6 +24,8 @@ h, Omega_M, Omega_b, Omega_k, w_DE
 
 max_int_radius = radius out to which to integrate the pressure profile.
 trunc_radius = where to truncate the 2D SZ signal. This should be smaller than max_int_radius.
+
+beta = Beta value in the profile
 
 Mmin = lower mass cut
 Mmax = upper mass cut
